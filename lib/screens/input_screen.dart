@@ -11,7 +11,7 @@ class _InputScreenState extends State<InputScreen> {
   @override
   Widget build(BuildContext context) {
     return const Padding(
-      padding: EdgeInsets.all(26.0),
+      padding: EdgeInsets.all(16.0),
       child:  TextField(
       style: TextStyle(
         fontSize: 24,
