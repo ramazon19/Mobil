@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class InputScreen extends StatefulWidget {
   const InputScreen({super.key});
@@ -10,7 +11,7 @@ class InputScreen extends StatefulWidget {
 class _InputScreenState extends State<InputScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Padding(
+    return Padding(
       padding: EdgeInsets.all(16.0),
       child:  TextField(
       style: TextStyle(
@@ -22,8 +23,14 @@ class _InputScreenState extends State<InputScreen> {
         border: OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(26))
         ),
+        counterText: '',
       ),
+      keyboardType: TextInputType.number,
       textAlign: TextAlign.end,
+      inputFormatters: [
+        FilteringTextInputFormatter.allow(RegExp(r'^\d*\.?\d*')),
+      ],
+      maxLength: 15,
     ),
     );
   }
